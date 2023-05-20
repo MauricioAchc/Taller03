@@ -1,11 +1,11 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 class Instrumento{
--cvs : int
+-cvs : String
 -precio : int
 -stock  : int
 -tipoMaterial : String
-+Instrumento(cvs: int,precio: int,stock: int,tipoMaterial : String)
++Instrumento(cvs: String,precio: int,stock: int,tipoMaterial : String)
 +get´s()
 +set´s()
 }
@@ -14,7 +14,7 @@ class Cuerda{
 -tipoCuerda : String
 -numeroCuerda : int
 -tipo : String
-+Cuerda(cvs: int,precio: int,stock: int,tipoMaterial : String,tipoCuerda : String,numeroCuerda : int,tipo : String)
++Cuerda(cvs: String,precio: int,stock: int,tipoMaterial : String,tipoCuerda : String,numeroCuerda : int,tipo : String)
 +get´s()
 +set´s()
 }
@@ -22,11 +22,11 @@ class Cuerda{
 class Percusion{
 -tipo : String
 -altura : int
-+Percusion(cvs: int,precio: int,stock: int,tipoMaterial : String, tipo : String, altura: int)
++Percusion(cvs: String,precio: int,stock: int,tipoMaterial : String, tipo : String, altura: int)
 }
 
 class Viento{
-+Viento(cvs: int,precio: int,stock: int,tipoMaterial : String)
++Viento(cvs: String,precio: int,stock: int,tipoMaterial : String)
 }
 
 class Boleta{
@@ -43,25 +43,23 @@ class ListaInstrumento{
 -cantActual : int
 +ListaInstrumento(cantActual:int)
 +agregarInstrumento(instrumento:Instrumento)
-+buscarInstrumento(cvs:int):int
++buscarInstrumento(cvs:String):int
 +obtenerInstrumento(posicion:int):Instrumento
-+eliminarInstrumento(cvs:int):boolean
++eliminarInstrumento(cvs:String):boolean
 +get´s()
 +set´s()
 }
 
 interface SistemaBeatTheRhythm{
-+agregarInstrumento(cvs:int): boolean
-+venderInstrumento(cvs:int): Instrumento
-+consultarInventario(cvs:int,intrumento:Instrumento): String[]
++agregarInstrumento(cvs:String): void
++venderInstrumento(cvs:String): Instrumento
++consultarInventario(cvs:String,intrumento:Instrumento): String[]
 +cierre(): void
 }
 
 class SistemaBeatTheRhythmImpl{
 -listaInstrumento: ListaInstrumento
--boleta : Boleta
 +SistemaBeatTheRhythmImpl()
-
 }
 
 
@@ -74,6 +72,5 @@ Instrumento --o ListaInstrumento : contiene
 ListaInstrumento "1" <-- "1" Boleta : contiene
 
 SistemaBeatTheRhythmImpl ..> SistemaBeatTheRhythm: implements
-SistemaBeatTheRhythmImpl"1" --> "1"Boleta: contiene
 SistemaBeatTheRhythmImpl --> ListaInstrumento: contiene
 @enduml
