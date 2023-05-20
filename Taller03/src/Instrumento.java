@@ -64,4 +64,6 @@ public abstract class Instrumento {
     public void setTipoInstrumento(String tipoInstrumento) {
         this.tipoInstrumento = tipoInstrumento;
     }
+
+    public abstract String toString();
 }

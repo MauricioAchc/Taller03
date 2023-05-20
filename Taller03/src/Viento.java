@@ -4,4 +4,8 @@ public class Viento extends Instrumento{
         super(cvs, precio, stock, nombre, tipoMaterial, tipoInstrumento);
     }
 
+    public String toString() {
+        return "Cvs: "+super.getCvs()+"\nPrecio: "+super.getPrecio()+
+                "\nNombre del Instrumento: "+super.getNombre();
+    }
 }

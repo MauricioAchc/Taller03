@@ -35,4 +35,10 @@ public class Cuerda extends Instrumento{
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    public String toString() {
+        return "Cvs: "+super.getCvs()+"\nPrecio: "+super.getPrecio()+
+                "\nNombre del Instrumento: "+super.getNombre()+"\nTipo de cuerda: "+
+                this.tipoCuerda+"\nNúmero de cuerdas: "+this.numeroCuerda+"\nTipo: "+this.tipo;
+    }
 }

@@ -75,4 +75,12 @@ public class ListaInstrumento {
     public void setCantMax(int cantMax) {
         this.cantMax = cantMax;
     }
+
+    public Instrumento[] getListaIntrumento() {
+        return listaIntrumento;
+    }
+
+    public void setListaIntrumento(Instrumento[] listaIntrumento) {
+        this.listaIntrumento = listaIntrumento;
+    }
 }

@@ -1,3 +1,8 @@
+import ucn.ArchivoSalida;
+import ucn.Registro;
+
+import java.io.IOException;
+
 public class SistemaBeatTheRhythmImpl implements SistemaBeatRhythm {
 
     ListaInstrumento listaInstrumento;
@@ -13,7 +18,7 @@ public class SistemaBeatTheRhythmImpl implements SistemaBeatRhythm {
 
     }
 
-    public boolean agregarInstrumentoPercusion(String cvs,int precio, int stock, String nombre, String tipoMaterial, String tipoInstrumento,String tipo, int altura) {
+    public boolean agregarInstrumentoPercusion(String cvs,int precio, int stock, String nombre, String tipoMaterial, String tipoInstrumento,String tipo, String altura) {
         Percusion percusion = new Percusion(cvs,precio,stock,nombre,tipoMaterial, tipoInstrumento,tipo,altura);
         return this.listaInstrumento.agregarInstrumento(percusion);
 
@@ -30,8 +35,14 @@ public class SistemaBeatTheRhythmImpl implements SistemaBeatRhythm {
     }
 
     @Override
-    public String[] consultarInventario(String cvs, Instrumento instrumento) {
-        return new String[0];
+    public String[] consultarInventario() {
+
+        String[] listadoInstrumentos = new String[this.listaInstrumento.getCantActual()];
+
+        for (int i = 0; i < listaInstrumento.getCantActual(); i++) {
+            listadoInstrumentos[i] = this.listaInstrumento.obtenerInstrumento(i).toString();
+        }
+        return listadoInstrumentos;
     }
 
     @Override
@@ -52,7 +63,7 @@ public class SistemaBeatTheRhythmImpl implements SistemaBeatRhythm {
 
         String[] listadoPercusion = new String[this.listaInstrumento.getCantActual()];
         for (int i = 0; i < listaInstrumento.getCantActual(); i++) {
-            if (this.listaInstrumento.obtenerInstrumento(i).getTipoInstrumento().equals("percusión")){
+            if (this.listaInstrumento.obtenerInstrumento(i).getTipoInstrumento().equals("percusion")){
                 listadoPercusion[i] = this.listaInstrumento.obtenerInstrumento(i).toString();
             }
         }
@@ -74,7 +85,33 @@ public class SistemaBeatTheRhythmImpl implements SistemaBeatRhythm {
     }
 
     @Override
-    public void cierre() {
+    public boolean existeInstrumento(String cvs) {
 
+        for (int i = 0; i < this.listaInstrumento.getCantActual(); i++) {
+            if (this.listaInstrumento.getListaIntrumento()[i].getCvs().equalsIgnoreCase(cvs)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void cierre() throws IOException {
+
+        ArchivoSalida archivoSalida = new ArchivoSalida("instrumentosSistema.txt");
+
+        for (int i = 0; i < listaInstrumento.getCantActual(); i++) {
+
+            Registro registro = new Registro(6);
+
+            registro.agregarCampo(listaInstrumento.getListaIntrumento()[i].getCvs());
+            registro.agregarCampo(listaInstrumento.getListaIntrumento()[i].getPrecio());
+            registro.agregarCampo(listaInstrumento.getListaIntrumento()[i].getStock());
+            registro.agregarCampo(listaInstrumento.getListaIntrumento()[i].getNombre());
+            registro.agregarCampo(listaInstrumento.getListaIntrumento()[i].getTipoMaterial());
+            registro.agregarCampo(listaInstrumento.getListaIntrumento()[i].getTipoInstrumento());
+            archivoSalida.writeRegistro(registro);
+        }
+        archivoSalida.close();
     }
 }
