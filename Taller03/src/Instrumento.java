@@ -5,13 +5,15 @@ public abstract class Instrumento {
     private int stock;
     private String nombre;
     private String tipoMaterial;
+    private String tipoInstrumento;
 
-    public Instrumento(String cvs, int precio, int stock, String nombre, String tipoMaterial) {
+    public Instrumento(String cvs, int precio, int stock, String nombre, String tipoMaterial, String tipoInstrumento) {
         this.cvs = cvs;
         this.precio = precio;
         this.stock = stock;
         this.nombre = nombre;
         this.tipoMaterial = tipoMaterial;
+        this.tipoInstrumento = tipoInstrumento;
     }
 
     public String getCvs() {
@@ -53,5 +55,13 @@ public abstract class Instrumento {
 
     public void setTipoMaterial(String tipoMaterial) {
         this.tipoMaterial = tipoMaterial;
+    }
+
+    public String getTipoInstrumento() {
+        return tipoInstrumento;
+    }
+
+    public void setTipoInstrumento(String tipoInstrumento) {
+        this.tipoInstrumento = tipoInstrumento;
     }
 }
