@@ -1,11 +1,11 @@
 public class ListaInstrumento {
 
-    private Instrumento[] listaIntrumento;
+    private Instrumento[] listaInstrumento;
     private int cantActual;
     private int cantMax;
 
     public ListaInstrumento(int cantMax) {
-        this.listaIntrumento = new Instrumento[this.cantMax];
+        this.listaInstrumento = new Instrumento[this.cantMax];
         this.cantActual = 0;
         this.cantMax = cantMax;
     }
@@ -14,8 +14,8 @@ public class ListaInstrumento {
 
         for (int i = 0; i < this.cantActual; i++) {
 
-            if (this.listaIntrumento[i].getCvs().equals(cvs)){
-                return this.listaIntrumento[i];
+            if (this.listaInstrumento[i].getCvs().equals(cvs)){
+                return this.listaInstrumento[i];
             }
         }
         return null;
@@ -26,7 +26,7 @@ public class ListaInstrumento {
         if (posicion < 0 || posicion >= this.cantMax){
             throw new IllegalArgumentException("Posición no valida!");
         }
-        return this.listaIntrumento[posicion];
+        return this.listaInstrumento[posicion];
     }
 
     public boolean agregarInstrumento(Instrumento instrumento){
@@ -37,7 +37,7 @@ public class ListaInstrumento {
         if (aux != null){
             return false;
         }
-        this.listaIntrumento[cantActual] = instrumento;
+        this.listaInstrumento[this.cantActual] = instrumento;
         this.cantActual++;
         return true;
     }
@@ -59,10 +59,10 @@ public class ListaInstrumento {
     }
 
     public Instrumento[] getListaIntrumento() {
-        return listaIntrumento;
+        return listaInstrumento;
     }
 
     public void setListaIntrumento(Instrumento[] listaIntrumento) {
-        this.listaIntrumento = listaIntrumento;
+        this.listaInstrumento = listaIntrumento;
     }
 }

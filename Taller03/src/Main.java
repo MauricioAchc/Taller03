@@ -12,6 +12,9 @@ public class Main {
         cargarInstrumentos(sistema);
 
         menuPrincipal(sistema);
+        subMenuVenderInstrumento(sistema);
+        subMenuAgregarInstrumento(sistema);
+        subMenuDesplegarInstrumentos(sistema);
 
 
 
@@ -102,6 +105,7 @@ public class Main {
 
             switch (menu){
                 case 1 -> subMenuAgregarInstrumento(sistema);
+                case 2 -> subMenuVenderInstrumento(sistema);
 
                 case 3 -> subMenuDesplegarInstrumentos(sistema);
                 case 4 -> cierre(sistema);
@@ -356,6 +360,25 @@ public class Main {
             }
         }
     }
-}
+
+
+    public static void subMenuVenderInstrumento(SistemaBeatRhythm sistema){
+            StdOut.println("--------->Venta de un Instrumento<---------");
+            StdOut.print("Ingrese cvs del Instrumento: ");
+            String cvs = StdIn.readLine();
+
+            boolean existe =  sistema.existeInstrumento(cvs);
+
+            if (existe){
+                StdOut.print("Instrumento en stock");
+                sistema.venderInstrumento(cvs);
+                StdOut.println("\n¡Instrumento vendido con éxito!\n");
+            }
+        }
+
+
+
+    }
+
 
 
