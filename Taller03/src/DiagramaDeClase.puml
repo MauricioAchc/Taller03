@@ -60,7 +60,6 @@ interface SistemaBeatTheRhythm{
 class SistemaBeatTheRhythmImpl{
 -listaInstrumento: ListaInstrumento
 +SistemaBeatTheRhythmImpl()
-
 }
 
 
