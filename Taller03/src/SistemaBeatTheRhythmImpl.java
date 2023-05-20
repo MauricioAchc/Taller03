@@ -7,11 +7,25 @@ public class SistemaBeatTheRhythmImpl implements SistemaBeatRhythm {
     }
 
     @Override
-    public void agregarInstrumento() {
+    public boolean agregarInstrumentoCuerda(String cvs,int precio, int stock, String nombre, String tipoMaterial, String tipoCuerda, int numeroCuerda, String tipo) {
+        Cuerda cuerda = new Cuerda(cvs,precio,stock,nombre,tipoMaterial,tipoCuerda,numeroCuerda,tipo);
+        return this.listaInstrumento.agregarInstrumento(cuerda);
+
     }
 
+    public boolean agregarInstrumentoPercusion(String cvs,int precio, int stock, String nombre, String tipoMaterial,String tipo, int altura) {
+        Percusion percusion = new Percusion(cvs,precio,stock,nombre,tipoMaterial,tipo,altura);
+        return this.listaInstrumento.agregarInstrumento(percusion);
+
+    }
+
+    public boolean agregarInstrumentoViento(String cvs,int precio, int stock, String nombre, String tipoMaterial) {
+        Viento viento = new Viento(cvs,precio,stock,nombre,tipoMaterial);
+        return this.listaInstrumento.agregarInstrumento(viento);
+
     @Override
-    public Instrumento venderIntrumento() {
+    public Instrumento venderInstrumento(String cvs) {
+
         return null;
     }
 

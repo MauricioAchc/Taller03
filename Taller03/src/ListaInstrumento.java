@@ -28,7 +28,7 @@ public class ListaInstrumento {
         return this.listaIntrumento[posicion];
     }
 
-    public void agregarInstrumento(Instrumento instrumento){
+    public boolean agregarInstrumento(Instrumento instrumento){
 
         if (this.buscarInstrumento(instrumento.getCvs()) != -1){
             throw new IllegalArgumentException("El instrumento ya existe!");
@@ -42,7 +42,7 @@ public class ListaInstrumento {
             if (this.listaIntrumento[i] == null){
                 this.listaIntrumento[i] = instrumento;
                 this.cantActual++;
-                return;
+                return false;
             }
         }
         throw new IllegalArgumentException("No se encontró espacio disponible!");
