@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         SistemaBeatRhythm sistema = new SistemaBeatTheRhythmImpl();
         menuPrincipal(sistema);
+        subMenuAgregarInstrumento(sistema);
 
 
     }
@@ -45,15 +46,89 @@ public class Main {
             menu = menuInt;
 
             if (menu == 1) {
-                AgregarInstrumento(sistema);
+                subMenuAgregarInstrumento(sistema);
+                venderInstrumento(sistema);
+                consultarInventario(sistema);
+                cierre(sistema);
             }
         }
 
     }
 
-    private static void AgregarInstrumento(SistemaBeatRhythm sistema) throws IOException{
+
+    private static void venderInstrumento(SistemaBeatRhythm sistema) throws  IOException{
 
     }
+    private static void consultarInventario(SistemaBeatRhythm sistema) throws  IOException{
+
+    }
+
+    private static void cierre(SistemaBeatRhythm sistema) throws  IOException{
+        sistema.cierre();
+        StdOut.println("Cerrando el sistema...\n hasta luego");
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public  static void subMenuAgregarInstrumento(SistemaBeatRhythm sistema){
+        int opcionInt = 0;
+
+        while(opcionInt != 4){
+            StdOut.println("------------------------>Menú agregar Instrumentos<------------------------");
+            StdOut.println("[1]  Agregar Instrumento de Cuerda");
+            StdOut.println("[2]  Agregar Instrumento de Percusión");
+            StdOut.println("[3]  Agregar Instrumento de Viento");
+            StdOut.println("[4]  Volver al menú anterior");
+            StdOut.println("Ingrese una opción por favor:");
+            String opcionStr = StdIn.readLine();
+
+            while(true){
+                try{
+                    opcionInt = Integer.parseInt(opcionStr);
+                    if(1 <= opcionInt && opcionInt <=4){
+                        break;
+                    }else{
+                        StdOut.println("error la opcion ingresada no existe");
+                        StdOut.println("Ingrese una opción valida por favor");
+                        opcionStr = StdIn.readString();
+                    }
+
+                }catch(Exception e){
+                    StdOut.println("error la opcion ingresada no existe");
+                    StdOut.println("Ingrese una opción valida por favor");
+                    opcionStr = StdIn.readString();
+                }
+            }
+            if (opcionInt == 1) {
+                agregarInstrumentoCuerda(sistema);
+                agregarInstrumentoPercusion(sistema);
+                agregarInstrumentoViento(sistema);
+                StdOut.println("...Volviento al menú anterior...");
+            }
+
+        }
+    }
+
+    public static  void agregarInstrumentoCuerda(SistemaBeatRhythm sistema){
+
+    }
+    public static  void agregarInstrumentoPercusion(SistemaBeatRhythm sistema){
+
+    }
+    public static  void agregarInstrumentoViento(SistemaBeatRhythm sistema){
+
+    }
+
+
 }
 
 
