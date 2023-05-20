@@ -27,6 +27,42 @@ public class Main {
             String nombre = registroEntrada.getString();
             String tipoMaterial = registroEntrada.getString();
             String tipoInstrumento = registroEntrada.getString();
+
+            String tipoInstrumentoS = tipoInstrumento.replace("","");
+
+            switch (tipoInstrumento){
+                case "cuerda":
+                    String tipoCuerda = registroEntrada.getString();
+                    int numeroCuerda = registroEntrada.getInt();
+                    String tipo = registroEntrada.getString();
+
+                    boolean estadoCuerda = sistema.agregarInstrumentoCuerda(cvs,precio,stock,nombre,tipoMaterial,tipoInstrumento,tipoCuerda,numeroCuerda,tipo);
+                    if (estadoCuerda){
+                        StdOut.println(nombre+"Fué agregado exitosamente.");
+                    }else{
+                        StdOut.println(nombre+"No fué agregado");
+                    }
+                    break;
+                case "percusion":
+                    String tipoPercusion = registroEntrada.getString();
+                    String altura = registroEntrada.getString();
+
+                    boolean estadoPercusion = sistema.agregarInstrumentoPercusion(cvs,precio,stock,nombre,tipoMaterial,tipoInstrumento,tipoPercusion,altura);
+                    if (estadoPercusion){
+                        StdOut.println(nombre+"Fué agregado exitosamente.");
+                    }else{
+                        StdOut.println(nombre+"No fué agregado");
+                    }
+                    break;
+                case "viento":
+                    boolean estadoViento = sistema.agregarInstrumentoViento(cvs,precio,stock,nombre,tipoMaterial,tipoInstrumento);
+                    if (estadoViento){
+                        StdOut.println(nombre+"Fué agregado exitosamente.");
+                    }else{
+                        StdOut.println(nombre+"No fué agregado");
+                    }
+                    break;
+            }
         }
         archivoEntrada.close();
     }

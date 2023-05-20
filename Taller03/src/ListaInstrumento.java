@@ -10,14 +10,15 @@ public class ListaInstrumento {
         this.cantMax = cantMax;
     }
 
-    public int buscarInstrumento(String cvs){
+    public Instrumento buscarInstrumento(String cvs){
 
-        for (int i = 0; i < this.cantMax; i++) {
+        for (int i = 0; i < this.cantActual; i++) {
+
             if (this.listaIntrumento[i].getCvs().equals(cvs)){
-                return i;
+                return this.listaIntrumento[i];
             }
         }
-        return -1;
+        return null;
     }
 
     public Instrumento obtenerInstrumento(int posicion){
@@ -29,34 +30,15 @@ public class ListaInstrumento {
     }
 
     public boolean agregarInstrumento(Instrumento instrumento){
-
-        if (this.buscarInstrumento(instrumento.getCvs()) != -1){
-            throw new IllegalArgumentException("El instrumento ya existe!");
-        }
-
-        if (this.cantActual == this.cantMax){
-            throw new IllegalArgumentException("Capacidad maxima ya utilizada!");
-        }
-
-        for (int i = 0; i < this.cantMax; i++) {
-            if (this.listaIntrumento[i] == null){
-                this.listaIntrumento[i] = instrumento;
-                this.cantActual++;
-                return false;
-            }
-        }
-        throw new IllegalArgumentException("No se encontró espacio disponible!");
-    }
-
-    public boolean eliminarInstrumento(String cvs){
-
-        int posicion = this.buscarInstrumento(cvs);
-
-        if (posicion < 0){
+        if (this.cantMax == this.cantActual){
             return false;
         }
-        this.listaIntrumento[posicion] = null;
-        this.cantActual--;
+        Instrumento aux = this.buscarInstrumento(instrumento.getCvs());
+        if (aux != null){
+            return false;
+        }
+        this.listaIntrumento[cantActual] = instrumento;
+        this.cantActual++;
         return true;
     }
 

@@ -1,20 +1,20 @@
 public class Percusion extends Instrumento{
 
-    private String tipo;
+    private String tipoPercusion;
     private String altura;
 
-    public Percusion(String cvs, int precio, int stock,String nombre, String tipoMaterial, String tipoInstrumento, String tipo, String altura) {
+    public Percusion(String cvs, int precio, int stock,String nombre, String tipoMaterial, String tipoInstrumento, String tipoPercusion, String altura) {
         super(cvs, precio, stock, nombre, tipoMaterial, tipoInstrumento);
-        this.tipo = tipo;
+        this.tipoPercusion = tipoPercusion;
         this.altura = altura;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getTipoPercusion() {
+        return tipoPercusion;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoPercusion(String tipoPercusion) {
+        this.tipoPercusion = tipoPercusion;
     }
 
     public String getAltura() {
@@ -28,6 +28,6 @@ public class Percusion extends Instrumento{
     public String toString() {
         return "Cvs: "+super.getCvs()+"\nPrecio: "+super.getPrecio()+
                 "\nNombre del Instrumento: "+super.getNombre()+"\nTipo: "+
-                this.tipo+"\nAltura: "+this.altura;
+                this.tipoPercusion+"\nAltura: "+this.altura;
     }
 }

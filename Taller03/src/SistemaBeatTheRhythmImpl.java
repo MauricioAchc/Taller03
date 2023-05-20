@@ -18,8 +18,8 @@ public class SistemaBeatTheRhythmImpl implements SistemaBeatRhythm {
 
     }
 
-    public boolean agregarInstrumentoPercusion(String cvs,int precio, int stock, String nombre, String tipoMaterial, String tipoInstrumento,String tipo, String altura) {
-        Percusion percusion = new Percusion(cvs,precio,stock,nombre,tipoMaterial, tipoInstrumento,tipo,altura);
+    public boolean agregarInstrumentoPercusion(String cvs,int precio, int stock, String nombre, String tipoMaterial, String tipoInstrumento,String tipoPercusion, String altura) {
+        Percusion percusion = new Percusion(cvs,precio,stock,nombre,tipoMaterial, tipoInstrumento,tipoPercusion,altura);
         return this.listaInstrumento.agregarInstrumento(percusion);
 
     }
