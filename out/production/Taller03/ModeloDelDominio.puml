@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+
+Class Instrumento{
+csv
+precio
+stock
+tipoMaterial
+nombreInstrumento
+}
+
+class Cuerda{
+tipoCuerda
+numeroCuerda
+tipo
+}
+
+
+class Percusion{
+tipo
+altura
+}
+
+class Viento{
+
+}
+
+class Boleta{
+InstrumentoVendido
+precio
+}
+
+Instrumento  <|-- Cuerda
+Instrumento  <|-- Percusion
+Instrumento  <|-- Viento
+Instrumento "1..*" <-- "1" Boleta : tiene
+
+
+@enduml
