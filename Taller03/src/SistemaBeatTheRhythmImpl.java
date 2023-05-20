@@ -8,7 +8,6 @@ public class SistemaBeatTheRhythmImpl implements SistemaBeatRhythm {
 
     @Override
     public void agregarInstrumento() {
-
     }
 
     @Override
