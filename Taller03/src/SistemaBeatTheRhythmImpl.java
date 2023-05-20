@@ -32,6 +32,13 @@ public class SistemaBeatTheRhythmImpl implements SistemaBeatRhythm {
     @Override
     public void venderInstrumento(String cvs) {
 
+        Instrumento instrumento = this.listaInstrumento.buscarIntrumento2(cvs);
+
+        if (instrumento == null){
+            throw new IllegalArgumentException("Instrumento con cvs " + cvs + " no existe o no se encuentra disponible.");
+        }
+
+        this.listaInstrumento.eliminarInstrumento(cvs);
     }
 
     @Override

@@ -12,12 +12,6 @@ public class Main {
         cargarInstrumentos(sistema);
 
         menuPrincipal(sistema);
-        subMenuVenderInstrumento(sistema);
-        subMenuAgregarInstrumento(sistema);
-        subMenuDesplegarInstrumentos(sistema);
-
-
-
     }
 
     public static void cargarInstrumentos(SistemaBeatRhythm sistema) throws IOException {
@@ -255,28 +249,28 @@ public class Main {
         if (existe){
             StdOut.print("Instrumento ya registrado.\nVolviendo al menú anterior...\n");
         }else{
-            StdOut.print("Ingrese precio: ");
+            StdOut.print("Ingrese precio del instrumento: ");
             int precio = Integer.parseInt(StdIn.readLine());
 
-            StdOut.print("Ingrese stock: ");
+            StdOut.print("Ingrese stock del instrumento: ");
             int stock = Integer.parseInt(StdIn.readLine());
 
-            StdOut.print("Ingrese nombre: ");
+            StdOut.print("Ingrese nombre del instrumento: ");
             String nombre = StdIn.readLine();
 
-            StdOut.print("Ingrese tipo de material: ");
+            StdOut.print("Ingrese tipo de material el instrumento: ");
             String tipoMaterial = StdIn.readLine();
 
-            StdOut.print("Ingrese tipo de instrumento: ");
+            StdOut.print("Ingrese tipo de instrumento (Cuerda, Percusión o Viento): ");
             String tipoInstrumento = StdIn.readLine();
 
-            StdOut.print("Ingrese tipo de cuerda: ");
+            StdOut.print("Ingrese tipo de cuerda del instrumento: ");
             String tipoCuerda = StdIn.readLine();
 
-            StdOut.print("Ingrese numero de cuerdas: ");
+            StdOut.print("Ingrese numero de cuerdas del instrumentos: ");
             int numeroCuerda = Integer.parseInt(StdIn.readLine());
 
-            StdOut.print("Ingrese tipo: ");
+            StdOut.print("Ingrese tipo (Acústico, Eléctrico): ");
             String tipo = StdIn.readLine();
 
             sistema.agregarInstrumentoCuerda(cvs,precio,stock,nombre,tipoMaterial,tipoInstrumento,tipoCuerda,numeroCuerda,tipo);
@@ -293,29 +287,29 @@ public class Main {
         if (existe){
             StdOut.print("Instrumento ya registrado.\nVolviendo al menú anterior...\n");
         }else{
-            StdOut.print("Ingrese precio: ");
+            StdOut.print("Ingrese precio el instrumento: ");
             int precio = Integer.parseInt(StdIn.readLine());
 
-            StdOut.print("Ingrese stock: ");
+            StdOut.print("Ingrese stock el instrumento: ");
             int stock = Integer.parseInt(StdIn.readLine());
 
-            StdOut.print("Ingrese nombre: ");
+            StdOut.print("Ingrese nombre el instrumento: ");
             String nombre = StdIn.readLine();
 
-            StdOut.print("Ingrese tipo de material: ");
+            StdOut.print("Ingrese tipo de material el instrumento: ");
             String tipoMaterial = StdIn.readLine();
 
-            StdOut.print("Ingrese tipo de instrumento: ");
+            StdOut.print("Ingrese tipo de instrumento (Cuerda, Percusión o Viento): ");
             String tipoInstrumento = StdIn.readLine();
 
-            StdOut.print("Ingrese tipo: ");
-            String tipo = StdIn.readLine();
+            StdOut.print("Ingrese tipo de percusión: ");
+            String tipoPercusion = StdIn.readLine();
 
-            StdOut.print("Ingrese altura: ");
+            StdOut.print("Ingrese altura del instrumento (Definida o Indefinida): ");
             String altura = StdIn.readLine();
 
 
-            sistema.agregarInstrumentoPercusion(cvs,precio,stock,nombre,tipoMaterial,tipoInstrumento,tipo,altura);
+            sistema.agregarInstrumentoPercusion(cvs,precio,stock,nombre,tipoMaterial,tipoInstrumento,tipoPercusion,altura);
             StdOut.println("\n¡Instrumento registrado con éxito!\n");
         }
     }
@@ -329,19 +323,19 @@ public class Main {
         if (existe){
             StdOut.print("Instrumento ya registrado.\nVolviendo al menú anterior...\n");
         }else{
-            StdOut.print("Ingrese precio: ");
+            StdOut.print("Ingrese precio del instrumento: ");
             int precio = Integer.parseInt(StdIn.readLine());
 
-            StdOut.print("Ingrese stock: ");
+            StdOut.print("Ingrese stock el instrumento: ");
             int stock = Integer.parseInt(StdIn.readLine());
 
-            StdOut.print("Ingrese nombre: ");
+            StdOut.print("Ingrese nombre del instrumento: ");
             String nombre = StdIn.readLine();
 
-            StdOut.print("Ingrese tipo de material: ");
+            StdOut.print("Ingrese tipo de material el instrumento: ");
             String tipoMaterial = StdIn.readLine();
 
-            StdOut.print("Ingrese tipo de instrumento: ");
+            StdOut.print("Ingrese tipo de instrumento (Cuerda, Percusión, Viento): ");
             String tipoInstrumento = StdIn.readLine();
 
             sistema.agregarInstrumentoViento(cvs,precio,stock,nombre,tipoMaterial,tipoInstrumento);
@@ -373,11 +367,10 @@ public class Main {
                 StdOut.print("Instrumento en stock");
                 sistema.venderInstrumento(cvs);
                 StdOut.println("\n¡Instrumento vendido con éxito!\n");
+            }else{
+                StdOut.println("\n¡No se encuentra el instrumento!\n");
             }
         }
-
-
-
     }
 
 
