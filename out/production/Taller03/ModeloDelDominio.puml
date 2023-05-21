@@ -26,15 +26,8 @@ class Viento{
 
 }
 
-class Boleta{
-InstrumentoVendido
-precio
-}
-
 Instrumento  <|-- Cuerda
 Instrumento  <|-- Percusion
 Instrumento  <|-- Viento
-Instrumento "1..*" <-- "1" Boleta : tiene
-
 
 @enduml
