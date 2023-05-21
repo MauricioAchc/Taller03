@@ -35,9 +35,9 @@ public class Main {
 
                     boolean estadoCuerda = sistema.agregarInstrumentoCuerda(cvs,precio,stock,nombre,tipoMaterial,tipoInstrumento,tipoCuerda,numeroCuerda,tipo);
                     if (estadoCuerda){
-                        StdOut.println(nombre+"Fué agregado exitosamente.");
+                        StdOut.println(nombre+" Fué agregado exitosamente.");
                     }else{
-                        StdOut.println(nombre+"No fué agregado");
+                        StdOut.println(nombre+" No fué agregado");
                     }
                     break;
                 case "percusion":
@@ -46,17 +46,17 @@ public class Main {
 
                     boolean estadoPercusion = sistema.agregarInstrumentoPercusion(cvs,precio,stock,nombre,tipoMaterial,tipoInstrumento,tipoPercusion,altura);
                     if (estadoPercusion){
-                        StdOut.println(nombre+"Fué agregado exitosamente.");
+                        StdOut.println(nombre+" Fué agregado exitosamente.");
                     }else{
-                        StdOut.println(nombre+"No fué agregado");
+                        StdOut.println(nombre+" No fué agregado");
                     }
                     break;
                 case "viento":
                     boolean estadoViento = sistema.agregarInstrumentoViento(cvs,precio,stock,nombre,tipoMaterial,tipoInstrumento);
                     if (estadoViento){
-                        StdOut.println(nombre+"Fué agregado exitosamente.");
+                        StdOut.println(nombre+" Fué agregado exitosamente.");
                     }else{
-                        StdOut.println(nombre+"No fué agregado");
+                        StdOut.println(nombre+" No fué agregado");
                     }
                     break;
             }
@@ -355,7 +355,6 @@ public class Main {
         }
     }
 
-
     public static void subMenuVenderInstrumento(SistemaBeatRhythm sistema){
             StdOut.println("--------->Venta de un Instrumento<---------");
             StdOut.print("Ingrese cvs del Instrumento: ");
@@ -370,8 +369,5 @@ public class Main {
             }else{
                 StdOut.println("\n¡No se encuentra el instrumento!\n");
             }
-        }
     }
-
-
-
+}

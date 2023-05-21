@@ -29,14 +29,6 @@ class Viento{
 +Viento(cvs: String,precio: int,stock: int,tipoMaterial : String)
 }
 
-class Boleta{
--instrumentoVendido: ListaInstrumento
--precio : int
-+ Boleta(instrumentoVendido: ListaInstrumento, precio:int)
-+get´s()
-+set´s()
-}
-
 class ListaInstrumento{
 -listaInstrumento : Instrumento[]
 -cantMax : int
@@ -63,13 +55,10 @@ class SistemaBeatTheRhythmImpl{
 }
 
 
-
-
 Instrumento  <|-- Cuerda
 Instrumento <|-- Percusion
 Instrumento <|-- Viento
 Instrumento --o ListaInstrumento : contiene
-ListaInstrumento "1" <-- "1" Boleta : contiene
 
 SistemaBeatTheRhythmImpl ..> SistemaBeatTheRhythm: implements
 SistemaBeatTheRhythmImpl --> ListaInstrumento: contiene

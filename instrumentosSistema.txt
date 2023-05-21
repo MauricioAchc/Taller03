@@ -1,0 +1,1 @@
+001,500000,3,guitarra,madera,cuerda

@@ -8,7 +8,7 @@ public class SistemaBeatTheRhythmImpl implements SistemaBeatRhythm {
     ListaInstrumento listaInstrumento;
 
     public SistemaBeatTheRhythmImpl(){
-        listaInstrumento = new ListaInstrumento(1000);
+        this.listaInstrumento = new ListaInstrumento(1000);
     }
 
     @Override

@@ -5,7 +5,7 @@ public class ListaInstrumento {
     private int cantMax;
 
     public ListaInstrumento(int cantMax) {
-        this.listaInstrumento = new Instrumento[this.cantMax];
+        this.listaInstrumento = new Instrumento[cantMax];
         this.cantActual = 0;
         this.cantMax = cantMax;
     }
