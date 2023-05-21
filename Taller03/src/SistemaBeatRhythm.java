@@ -7,6 +7,7 @@ public interface SistemaBeatRhythm {
     public boolean agregarInstrumentoViento(String cvs,int precio, int stock, String nombre, String tipoMaterial, String tipoInstrumento);
     public void venderInstrumento(String cvs);
     public String[] consultarInventario();
+    public String[] consultarInverntarioEspecifico(String cvs);
     public String[] obtenerListadoCuerda();
     public String[] obtenerListadoPercusion();
     public String[] obtenerListadoViento();

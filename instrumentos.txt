@@ -1,5 +1,5 @@
 001,500000,3,guitarra,madera,cuerda,nylon,6,acustica
-001,500000,3,guitarra,madera,cuerda,nylon,6,acustica
-002,900000,1,guitarra,metal,cuerda,acero,6,electrica
-003,200000,4,bongo,piel,percusion,membranofono,definida
-004,350000,5,trompeta,metal,viento
+002,500000,3,guitarra,madera,cuerda,nylon,6,acustica
+003,900000,1,guitarra,metal,cuerda,acero,6,electrica
+004,200000,4,bongo,piel,percusion,membranofono,definida
+005,350000,5,trompeta,metal,viento

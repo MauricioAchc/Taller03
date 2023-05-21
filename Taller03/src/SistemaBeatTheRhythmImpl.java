@@ -1,5 +1,6 @@
 import ucn.ArchivoSalida;
 import ucn.Registro;
+import ucn.StdOut;
 
 import java.io.IOException;
 
@@ -59,6 +60,21 @@ public class SistemaBeatTheRhythmImpl implements SistemaBeatRhythm {
     }
 
     @Override
+    public String[] consultarInverntarioEspecifico(String cvs) {
+
+        String[] listadoInstrumentos = new String[this.listaInstrumento.getCantMax()];
+
+        for (int i = 0; i < this.listaInstrumento.getCantMax(); i++) {
+
+            Instrumento instrumento = this.listaInstrumento.getListaIntrumento()[i];
+            if (instrumento !=null && instrumento.getCvs().equals(cvs)){
+                listadoInstrumentos[i] =instrumento.toString();
+            }
+        }
+        return listadoInstrumentos;
+    }
+
+    @Override
     public String[] obtenerListadoCuerda() {
 
         String[] listadoCuerda = new String[this.listaInstrumento.getCantActual()];
@@ -67,7 +83,6 @@ public class SistemaBeatTheRhythmImpl implements SistemaBeatRhythm {
                 listadoCuerda[i] = this.listaInstrumento.obtenerInstrumento(i).toString();
             }
         }
-
         return listadoCuerda;
     }
 

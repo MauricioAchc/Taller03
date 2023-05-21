@@ -152,6 +152,7 @@ public class Main {
             }
 
             switch (opcionInt) {
+                case 1 -> desplegarInstrumentoPorCvs(sistema);
                 case 2 -> desplegarTodosLosInstrumentos(sistema);
                 case 3 -> StdOut.println("\nVolviendo al menú anterior...\n");
             }
@@ -352,6 +353,25 @@ public class Main {
             if (instrumento != null){
                 StdOut.println(instrumento + "\n");
             }
+        }
+    }
+
+    public static void desplegarInstrumentoPorCvs(SistemaBeatRhythm sistema){
+
+
+        StdOut.println("\n"+"Ingrese cvs del instrumento a buscar: "+"\n");
+        String cvs = StdIn.readLine();
+
+        if (sistema.existeInstrumento(cvs)){
+            String[] instrumentos = sistema.consultarInverntarioEspecifico(cvs);
+
+            for (String instrumento : instrumentos){
+                if (instrumento != null){
+                    StdOut.println(instrumento + "\n");
+                }
+            }
+        }else{
+            StdOut.println("Cvs del instrumento no encontrado!"+"\n");
         }
     }
 

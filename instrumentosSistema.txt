@@ -1,4 +1,6 @@
 001,500000,3,guitarra,madera,cuerda
-001,500000,3,guitarra,madera,cuerda
-002,900000,1,guitarra,metal,cuerda
-004,350000,5,trompeta,metal,viento
+002,500000,3,guitarra,madera,cuerda
+003,900000,1,guitarra,metal,cuerda
+004,200000,4,bongo,piel,percusion
+005,350000,5,trompeta,metal,viento
+007,200000,2,arpa,madera,cuerda
