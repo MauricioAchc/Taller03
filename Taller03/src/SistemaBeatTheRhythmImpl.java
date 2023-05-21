@@ -15,7 +15,6 @@ public class SistemaBeatTheRhythmImpl implements SistemaBeatRhythm {
     public boolean agregarInstrumentoCuerda(String cvs,int precio, int stock, String nombre, String tipoMaterial, String tipoInstrumento, String tipoCuerda, int numeroCuerda, String tipo) {
         Cuerda cuerda = new Cuerda(cvs,precio,stock,nombre,tipoMaterial, tipoInstrumento,tipoCuerda,numeroCuerda,tipo);
         return this.listaInstrumento.agregarInstrumento(cuerda);
-
     }
 
     public boolean agregarInstrumentoPercusion(String cvs,int precio, int stock, String nombre, String tipoMaterial, String tipoInstrumento,String tipoPercusion, String altura) {
@@ -44,10 +43,17 @@ public class SistemaBeatTheRhythmImpl implements SistemaBeatRhythm {
     @Override
     public String[] consultarInventario() {
 
-        String[] listadoInstrumentos = new String[this.listaInstrumento.getCantActual()];
+        String[] listadoInstrumentos = new String[this.listaInstrumento.getCantMax()];
 
-        for (int i = 0; i < listaInstrumento.getCantActual(); i++) {
-            listadoInstrumentos[i] = this.listaInstrumento.obtenerInstrumento(i).toString();
+        for (int i = 0; i < listaInstrumento.getCantMax(); i++) {
+            try{
+                Instrumento instrumentoi = this.listaInstrumento.obtenerInstrumento(i);
+                if (instrumentoi != null){
+                    listadoInstrumentos[i] = instrumentoi.toString();
+                }
+            }catch (Exception E){
+                continue;
+            }
         }
         return listadoInstrumentos;
     }
@@ -107,17 +113,22 @@ public class SistemaBeatTheRhythmImpl implements SistemaBeatRhythm {
 
         ArchivoSalida archivoSalida = new ArchivoSalida("instrumentosSistema.txt");
 
-        for (int i = 0; i < listaInstrumento.getCantActual(); i++) {
+        for (int i = 0; i < listaInstrumento.getCantMax(); i++) {
 
             Registro registro = new Registro(6);
 
-            registro.agregarCampo(listaInstrumento.getListaIntrumento()[i].getCvs());
-            registro.agregarCampo(listaInstrumento.getListaIntrumento()[i].getPrecio());
-            registro.agregarCampo(listaInstrumento.getListaIntrumento()[i].getStock());
-            registro.agregarCampo(listaInstrumento.getListaIntrumento()[i].getNombre());
-            registro.agregarCampo(listaInstrumento.getListaIntrumento()[i].getTipoMaterial());
-            registro.agregarCampo(listaInstrumento.getListaIntrumento()[i].getTipoInstrumento());
-            archivoSalida.writeRegistro(registro);
+            Instrumento instrumentoi = this.listaInstrumento.obtenerInstrumento(i);
+            if (instrumentoi != null){
+
+                registro.agregarCampo(instrumentoi.getCvs());
+                registro.agregarCampo(instrumentoi.getPrecio());
+                registro.agregarCampo(instrumentoi.getStock());
+                registro.agregarCampo(instrumentoi.getNombre());
+                registro.agregarCampo(instrumentoi.getTipoMaterial());
+                registro.agregarCampo(instrumentoi.getTipoInstrumento());
+                archivoSalida.writeRegistro(registro);
+            }
+
         }
         archivoSalida.close();
     }

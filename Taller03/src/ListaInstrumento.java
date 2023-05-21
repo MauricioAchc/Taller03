@@ -43,10 +43,7 @@ public class ListaInstrumento {
         if (this.cantMax == this.cantActual){
             return false;
         }
-        Instrumento aux = this.buscarIntrumento2(instrumento.getCvs());
-        if (aux != null){
-            return false;
-        }
+
         this.listaInstrumento[this.cantActual] = instrumento;
         this.cantActual++;
         return true;
