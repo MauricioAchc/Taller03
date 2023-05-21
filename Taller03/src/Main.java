@@ -14,6 +14,13 @@ public class Main {
         menuPrincipal(sistema);
     }
 
+    //region LECTURA DE ARCHIVOS.
+
+    /**
+     * Subprograma para cargar y leer el archivo para guardarlo en la ListaInstrumento.
+     * @param sistema Corresponde al llamamiento al SistemaBeatTheRhythmImpl.
+     * @throws IOException Detiene la carga/escritura  del archivo si ocurre algun error.
+     */
     public static void cargarInstrumentos(SistemaBeatRhythm sistema) throws IOException {
         ArchivoEntrada archivoEntrada = new ArchivoEntrada("instrumentos.txt");
         while (!archivoEntrada.isEndFile()){
@@ -64,6 +71,12 @@ public class Main {
         archivoEntrada.close();
     }
 
+
+    /**
+     * Subprograma que lleva el menú principal del usuario.
+     * @param sistema Corresponde al llamamiento al SistemaBeatTheRhythmImpl.
+     * @throws IOException Detiene la carga/escritura del archivo si ocurre algun error.
+     */
     public static void menuPrincipal(SistemaBeatRhythm sistema) throws IOException{
         int menu = 0;
 
@@ -109,18 +122,20 @@ public class Main {
     }
 
 
-    private static void venderInstrumento(SistemaBeatRhythm sistema) throws  IOException{
 
-    }
-    private static void consultarInventario(SistemaBeatRhythm sistema) throws  IOException{
-
-    }
 
     private static void cierre(SistemaBeatRhythm sistema) throws  IOException{
         sistema.cierre();
 
         StdOut.println("Guardando datos y apagando el sistema...\n hasta luego");
     }
+
+
+
+    /**
+     * Subprograma que lleva el submenú de despliegue de los instrumentos.
+     * @param sistema Corresponde al llamamiento al SistemaBeatRhythmImpl.
+     */
 
     public static void subMenuDesplegarInstrumentos(SistemaBeatRhythm sistema){
 
@@ -159,50 +174,16 @@ public class Main {
         }
     }
 
-    public static void desplegarInstrumentos(SistemaBeatRhythm sistema){
 
-        StdOut.println("--------->Despliegue de todos los Instrumentos del sistema<---------");
-        StdOut.print("Ingrese el tipo de instrumento a buscar: ");
-        String tipoInstrumento = StdIn.readLine();
-        StdOut.print("\n");
 
-        switch (tipoInstrumento) {
-            case "cuerda" -> desplegarCuerda(sistema);
-            case "percusion" -> desplegarPercusion(sistema);
-            case "viento" -> desplegarViento(sistema);
-        }
-    }
 
-    public static void desplegarCuerda(SistemaBeatRhythm sistema){
 
-        String[] cuerdas = sistema.obtenerListadoCuerda();
-        for (String cuerda : cuerdas) {
-            if (cuerda != null) {
-                StdOut.println(cuerda+"\n");
-            }
-        }
-    }
 
-    public static void desplegarPercusion(SistemaBeatRhythm sistema){
 
-        String[] percusiones = sistema.obtenerListadoPercusion();
-        for (String percusion : percusiones) {
-            if (percusion != null) {
-                StdOut.println(percusion+"\n");
-            }
-        }
-    }
-
-    public static void desplegarViento(SistemaBeatRhythm sistema){
-
-        String[] vientos = sistema.obtenerListadoViento();
-        for (String viento : vientos) {
-            if (viento != null) {
-                StdOut.println(viento+"\n");
-            }
-        }
-    }
-
+    /**
+     * Subprograma que lleva el submenú de agregar los instrumentos.
+     * @param sistema Corresponde al llamamiento al SistemaBeatRhythmImpl.
+     */
     public  static void subMenuAgregarInstrumento(SistemaBeatRhythm sistema){
         int opcionInt = 0;
 
@@ -240,6 +221,11 @@ public class Main {
         }
     }
 
+
+    /**
+     * Subprograma que agrega los instrumentos de tipo cuerda al sistema.
+     * @param sistema Corresponde al llamamiento al SistemaBeatRhythmImpl.
+     */
     public static void agregarInstrumentoCuerda(SistemaBeatRhythm sistema){
         StdOut.println("--------->Agregar nuevo Instrumento de Cuerda al sistema<---------");
         StdOut.print("Ingrese cvs del Instrumento: ");
@@ -248,7 +234,7 @@ public class Main {
         boolean existe =  sistema.existeInstrumento(cvs);
 
         if (existe){
-            StdOut.print("Instrumento ya registrado.\nVolviendo al menú anterior...\n");
+            StdOut.print("Instrumento ya existe en el sistema.\nVolviendo al menú anterior...\n");
         }else{
             StdOut.print("Ingrese precio del instrumento: ");
             int precio = Integer.parseInt(StdIn.readLine());
@@ -278,6 +264,12 @@ public class Main {
             StdOut.println("\n¡Instrumento registrado con éxito!\n");
         }
     }
+
+
+    /**
+     * Subprograma que agrega los instrumentos de tipo percusión al sistema.
+     * @param sistema Corresponde al llamamiento al SistemaBeatRhythmImpl.
+     */
     public static  void agregarInstrumentoPercusion(SistemaBeatRhythm sistema){
         StdOut.println("--------->Agregar nuevo Instrumento de Percusión al sistema<---------");
         StdOut.print("Ingrese cvs del Instrumento: ");
@@ -286,7 +278,7 @@ public class Main {
         boolean existe =  sistema.existeInstrumento(cvs);
 
         if (existe){
-            StdOut.print("Instrumento ya registrado.\nVolviendo al menú anterior...\n");
+            StdOut.print("Instrumento ya existe en el sistema.\nVolviendo al menú anterior...\n");
         }else{
             StdOut.print("Ingrese precio el instrumento: ");
             int precio = Integer.parseInt(StdIn.readLine());
@@ -314,6 +306,12 @@ public class Main {
             StdOut.println("\n¡Instrumento registrado con éxito!\n");
         }
     }
+
+
+    /**
+     * Subprograma que agrega los instrumentos de tipo viento al sistema.
+     * @param sistema Corresponde al llamamiento al SistemaBeatRhythmImpl.
+     */
     public static  void agregarInstrumentoViento(SistemaBeatRhythm sistema){
         StdOut.println("--------->Agregar nuevo Instrumento de Percusión al sistema<---------");
         StdOut.print("Ingrese cvs del Instrumento: ");
@@ -322,7 +320,7 @@ public class Main {
         boolean existe =  sistema.existeInstrumento(cvs);
 
         if (existe){
-            StdOut.print("Instrumento ya registrado.\nVolviendo al menú anterior...\n");
+            StdOut.print("Instrumento ya existe en el sistema.\nVolviendo al menú anterior...\n");
         }else{
             StdOut.print("Ingrese precio del instrumento: ");
             int precio = Integer.parseInt(StdIn.readLine());
@@ -344,6 +342,13 @@ public class Main {
         }
     }
 
+
+
+    /**
+     * Subprograma que despliega todos los instrumentos del sistema.
+     * @param sistema Corresponde al llamamiento al SistemaBeatRhythmImpl.
+     */
+
     public static void desplegarTodosLosInstrumentos(SistemaBeatRhythm sistema){
 
         String[] instrumentos = sistema.consultarInventario();
@@ -356,6 +361,12 @@ public class Main {
         }
     }
 
+
+
+    /**
+     * Subprograma que despliega los instrumentos de acuerdo a sus cvs del sistema.
+     * @param sistema Corresponde al llamamiento al SistemaBeatRhythmImpl.
+     */
     public static void desplegarInstrumentoPorCvs(SistemaBeatRhythm sistema){
 
 
@@ -363,7 +374,7 @@ public class Main {
         String cvs = StdIn.readLine();
 
         if (sistema.existeInstrumento(cvs)){
-            String[] instrumentos = sistema.consultarInverntarioEspecifico(cvs);
+            String[] instrumentos = sistema.consultarInventarioEspecifico(cvs);
 
             for (String instrumento : instrumentos){
                 if (instrumento != null){
@@ -375,6 +386,12 @@ public class Main {
         }
     }
 
+
+
+    /**
+     * Subprograma que lleva el submenú de vender los instrumentos.
+     * @param sistema Corresponde al llamamiento al SistemaBeatRhythmImpl.
+     */
     public static void subMenuVenderInstrumento(SistemaBeatRhythm sistema){
             StdOut.println("--------->Venta de un Instrumento<---------");
             StdOut.print("Ingrese cvs del Instrumento: ");
@@ -382,10 +399,15 @@ public class Main {
 
             boolean existe =  sistema.existeInstrumento(cvs);
 
+
             if (existe){
-                StdOut.print("Instrumento en stock");
+                StdOut.print("Instrumento en stock"+"\n");
+
+                StdOut.println("\n**************** Boleta ****************\n");
                 sistema.venderInstrumento(cvs);
-                StdOut.println("\n¡Instrumento vendido con éxito!\n");
+                StdOut.println("\n**¡Instrumento vendido con éxito!**\n");
+
+
             }else{
                 StdOut.println("\n¡No se encuentra el instrumento!\n");
             }
