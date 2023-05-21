@@ -71,7 +71,6 @@ public class Main {
         archivoEntrada.close();
     }
 
-
     /**
      * Subprograma que lleva el menú principal del usuario.
      * @param sistema Corresponde al llamamiento al SistemaBeatTheRhythmImpl.
@@ -121,22 +120,16 @@ public class Main {
 
     }
 
-
-
-
     private static void cierre(SistemaBeatRhythm sistema) throws  IOException{
         sistema.cierre();
 
         StdOut.println("Guardando datos y apagando el sistema...\n hasta luego");
     }
 
-
-
     /**
      * Subprograma que lleva el submenú de despliegue de los instrumentos.
      * @param sistema Corresponde al llamamiento al SistemaBeatRhythmImpl.
      */
-
     public static void subMenuDesplegarInstrumentos(SistemaBeatRhythm sistema){
 
         int opcionInt = 0;
@@ -173,12 +166,6 @@ public class Main {
             }
         }
     }
-
-
-
-
-
-
 
     /**
      * Subprograma que lleva el submenú de agregar los instrumentos.
@@ -220,7 +207,6 @@ public class Main {
             }
         }
     }
-
 
     /**
      * Subprograma que agrega los instrumentos de tipo cuerda al sistema.
@@ -265,7 +251,6 @@ public class Main {
         }
     }
 
-
     /**
      * Subprograma que agrega los instrumentos de tipo percusión al sistema.
      * @param sistema Corresponde al llamamiento al SistemaBeatRhythmImpl.
@@ -307,7 +292,6 @@ public class Main {
         }
     }
 
-
     /**
      * Subprograma que agrega los instrumentos de tipo viento al sistema.
      * @param sistema Corresponde al llamamiento al SistemaBeatRhythmImpl.
@@ -342,13 +326,10 @@ public class Main {
         }
     }
 
-
-
     /**
      * Subprograma que despliega todos los instrumentos del sistema.
      * @param sistema Corresponde al llamamiento al SistemaBeatRhythmImpl.
      */
-
     public static void desplegarTodosLosInstrumentos(SistemaBeatRhythm sistema){
 
         String[] instrumentos = sistema.consultarInventario();
@@ -360,8 +341,6 @@ public class Main {
             }
         }
     }
-
-
 
     /**
      * Subprograma que despliega los instrumentos de acuerdo a sus cvs del sistema.
@@ -385,8 +364,6 @@ public class Main {
             StdOut.println("Cvs del instrumento no encontrado!"+"\n");
         }
     }
-
-
 
     /**
      * Subprograma que lleva el submenú de vender los instrumentos.

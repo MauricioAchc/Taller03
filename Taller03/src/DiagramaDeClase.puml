@@ -4,38 +4,49 @@ class Instrumento{
 -cvs : String
 -precio : int
 -stock  : int
+-nombre : String
 -tipoMaterial : String
-+Instrumento(cvs: String,precio: int,stock: int,tipoMaterial : String)
+-tipoInstrumento : String
++Instrumento(cvs: String,precio: int,stock: int,nombre : String,tipoMaterial : String,tipoInstrumento : String)
 +get´s()
 +set´s()
++toString() : String
 }
 
 class Cuerda{
 -tipoCuerda : String
 -numeroCuerda : int
 -tipo : String
-+Cuerda(cvs: String,precio: int,stock: int,tipoMaterial : String,tipoCuerda : String,numeroCuerda : int,tipo : String)
++Cuerda(cvs: String,precio: int,stock: int,nombre : String,tipoMaterial : String,tipoInstrumento : String,tipoCuerda : String,numeroCuerda : int,tipo : String)
 +get´s()
 +set´s()
++toString() : String
 }
 
 class Percusion{
--tipo : String
+-tipoPercusion : String
 -altura : int
-+Percusion(cvs: String,precio: int,stock: int,tipoMaterial : String, tipo : String, altura: int)
++Percusion(cvs: String,precio: int,stock: int,nombre : String,tipoMaterial : String,tipoInstrumento : String,tipo : String,altura: int)
++get´s()
++set´s()
++toString() : String
 }
 
 class Viento{
-+Viento(cvs: String,precio: int,stock: int,tipoMaterial : String)
++Viento(cvs: String,precio: int,stock: int,nombre : String,tipoMaterial : String,tipoInstrumento : String)
++get´s()
++set´s()
++toString() : String
 }
 
 class ListaInstrumento{
 -listaInstrumento : Instrumento[]
 -cantMax : int
 -cantActual : int
-+ListaInstrumento(cantActual:int)
-+agregarInstrumento(instrumento:Instrumento)
++ListaInstrumento(cantMax:int)
++agregarInstrumento(instrumento:Instrumento):boolean
 +buscarInstrumento(cvs:String):int
++buscarInstrumento2(cvs:String):Instrumento
 +obtenerInstrumento(posicion:int):Instrumento
 +eliminarInstrumento(cvs:String):boolean
 +get´s()
@@ -43,9 +54,13 @@ class ListaInstrumento{
 }
 
 interface SistemaBeatTheRhythm{
-+agregarInstrumento(cvs:String): void
-+venderInstrumento(cvs:String): Instrumento
-+consultarInventario(cvs:String,intrumento:Instrumento): String[]
++agregarInstrumentoCuerda(cvs: String,precio: int,stock: int,nombre : String,tipoMaterial : String,tipoInstrumento : String,tipoCuerda : String,numeroCuerda : int,tipo : String):boolean
++agregarInstrumentoPercusion(cvs: String,precio: int,stock: int,nombre : String,tipoMaterial : String,tipoInstrumento : String,tipo : String,altura: int):boolean
++agregarInstrumentoViento(cvs: String,precio: int,stock: int,nombre : String,tipoMaterial : String,tipoInstrumento : String):boolean
++venderInstrumento(cvs:String):void
++consultarInventario(): String[]
++consultarInventarioEspecifico(cvs:String): String[]
++existeInstrumento(cvs:String):boolean
 +cierre(): void
 }
 

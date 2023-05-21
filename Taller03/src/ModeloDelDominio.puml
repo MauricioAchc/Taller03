@@ -1,7 +1,6 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-
 Class Instrumento{
 csv
 precio
@@ -16,14 +15,12 @@ numeroCuerda
 tipo
 }
 
-
 class Percusion{
 tipo
 altura
 }
 
 class Viento{
-
 }
 
 Instrumento  <|-- Cuerda
